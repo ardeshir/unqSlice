@@ -1,1 +1,2 @@
-unique slices and sorting
+uniqueInt, uniqueStr of slices and sorting fun
+
