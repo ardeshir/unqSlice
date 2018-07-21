@@ -59,8 +59,12 @@ func checkGC() {
 
 }
 
+// This is used for map -> slice example
 
-
+type NameAge struct {
+     Name string
+     Age int
+}
 
 
 func main() {
@@ -85,12 +89,34 @@ for i, v := range str {
 
 sorted := sort.StringSlice(str)
 sorted.Sort()
-
 fmt.Println(sorted)
 
+var nameAgeSlice []NameAge
+
+ourAges := map[string]int{
+    "Ardesir": 47,
+    "Casey":   35,
+    "Kayan":    8,
+    "Anoush":  67 }
+
+for key, value := range ourAges {
+    nameAgeSlice = append(nameAgeSlice, NameAge {key, value} )
+}
+
+fmt.Println(nameAgeSlice)
+ for _, val := range nameAgeSlice {
+     
+    //  fmt.Println("Value: ", val)
+     fmt.Println("Name: ", val.Name, " Age: ", val.Age)
+
+ }
 
 
-//++++++++++  footer 
+
+
+///=++++++++++++++++++++++++++++++++++++++++++=///
+///=+++++++++++++++++++++++++++++++++++++++++++=///
+///=++++++++++  footer 
  if debugTrue() {
 
     printEnv()
