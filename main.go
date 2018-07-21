@@ -74,12 +74,16 @@ fmt.Println("Program to make unique a slice of integers with duplicate values:")
 intSlice := []int{1,4,5,4,3,3,44,3,2,2,3,4,88,8,7,0,9,9,5,2,3,5}
 
 fmt.Println("Slice: ", intSlice)
-unqSlice := unique(intSlice)
+unqSlice := uniqueInt(intSlice)
 
 fmt.Println("Making it unique(slice): ")
 fmt.Println(unqSlice)
 
-str := []string{"Ardeshir", "Sepahsalar", "Amir","Khademzadeh","Casey","Depasquale", "Kayhan","Anoush"}
+str := []string{"Ardeshir", "Ardeshir","Sepahsalar", "Amir","Amir", "Khademzadeh","Casey","Casey","Depasquale", "Kayhan","Anoush", "Anoush"}
+fmt.Println("Before uniqueStr: ", str)
+
+str = uniqueStr(str)
+fmt.Println("After uniqueStr: ", str)
 
 for i, v := range str {
     if v == "Kayhan" {
@@ -87,6 +91,7 @@ for i, v := range str {
     }
 }
 
+// sort them 
 sorted := sort.StringSlice(str)
 sorted.Sort()
 fmt.Println(sorted)
@@ -113,7 +118,6 @@ fmt.Println(nameAgeSlice)
 
 
 
-
 ///=++++++++++++++++++++++++++++++++++++++++++=///
 ///=+++++++++++++++++++++++++++++++++++++++++++=///
 ///=++++++++++  footer 
@@ -133,9 +137,9 @@ fmt.Println(nameAgeSlice)
  
  
  
-// Define unique()
+// Define uniqueInt()
 
-func unique(slc []int) []int {
+func uniqueInt(slc []int) []int {
     // use a map of int->bool to capture if int exists
     keys := make(map[int]bool)
     uniqElems := []int{}
@@ -151,6 +155,26 @@ func unique(slc []int) []int {
     
     return uniqElems
 } // end of unique()
+
+
+// Define unique()
+
+func uniqueStr(slc []string) []string {
+    // use a map of int->bool to capture if int exists
+    keys := make(map[string]bool)
+    uniqElems := []string{}
+    
+    for _, valInt := range slc {
+         // fmt.Println("Index: ", _, " ValueInt: ", valInt)
+         if _, valueMap := keys[valInt]; !valueMap {
+             // fmt.Println("ixMap", _, " ValueMap:", valueMap)
+             keys[valInt] = true
+             uniqElems = append(uniqElems, valInt)
+         }
+    } // end of for 
+    
+    return uniqElems
+} // end of uniqueStr()
 
 
 
