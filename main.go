@@ -5,6 +5,7 @@ import (
    "runtime"
    "os"
    "time"
+   "sort"
    u "github.com/ardeshir/version"
 )
 
@@ -74,7 +75,22 @@ unqSlice := unique(intSlice)
 fmt.Println("Making it unique(slice): ")
 fmt.Println(unqSlice)
 
- //++++++++++  footer 
+str := []string{"Ardeshir", "Sepahsalar", "Amir","Khademzadeh","Casey","Depasquale", "Kayhan","Anoush"}
+
+for i, v := range str {
+    if v == "Kayhan" {
+        fmt.Println("index:", i , " value:", v)
+    }
+}
+
+sorted := sort.StringSlice(str)
+sorted.Sort()
+
+fmt.Println(sorted)
+
+
+
+//++++++++++  footer 
  if debugTrue() {
 
     printEnv()
@@ -85,6 +101,11 @@ fmt.Println(unqSlice)
   }
 
 } // end of main
+ 
+// Find an element from an array or slice 
+ 
+ 
+ 
  
 // Define unique()
 
