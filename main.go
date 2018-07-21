@@ -76,8 +76,13 @@ intSlice := []int{1,4,5,4,3,3,44,3,2,2,3,4,88,8,7,0,9,9,5,2,3,5}
 fmt.Println("Slice: ", intSlice)
 unqSlice := uniqueInt(intSlice)
 
-fmt.Println("Making it unique(slice): ")
-fmt.Println(unqSlice)
+fmt.Println("Making it unique(slice):", unqSlice)
+
+unqSorted := sort.IntSlice(unqSlice)
+sort.Sort(unqSorted)
+
+fmt.Println("Sorting it: ", unqSorted)
+
 
 str := []string{"Ardeshir", "Ardeshir","Sepahsalar", "Amir","Amir", "Khademzadeh","Casey","Casey","Depasquale", "Kayhan","Anoush", "Anoush"}
 fmt.Println("Before uniqueStr: ", str)
