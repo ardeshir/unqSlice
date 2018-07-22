@@ -15,6 +15,7 @@ var (
 )
 
 func printEnv() {
+    
     fmt.Print("Using ", runtime.Compiler, " ")
     fmt.Println("on a", runtime.GOARCH, "machine")
     fmt.Println("Go version", runtime.Version())
@@ -107,13 +108,16 @@ ourAges := map[string]int{
     "Ardesir": 47,
     "Casey":   35,
     "Kayan":    8,
-    "Anoush":  67 }
+    "Anoush":   6 }
 
+// append to the slice a map for each value
 for key, value := range ourAges {
     nameAgeSlice = append(nameAgeSlice, NameAge {key, value} )
 }
 
+// range over the slice and print the Struct 
 fmt.Println(nameAgeSlice)
+
  for _, val := range nameAgeSlice {
      
     //  fmt.Println("Value: ", val)
